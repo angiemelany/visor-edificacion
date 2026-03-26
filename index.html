@@ -51,16 +51,17 @@
             }
         });
 
-        function poblarFiltros(data) {
-            const destinos = [...new Set(data.map(d => d.DESTINO))].filter(Boolean);
-            const comunas = [...new Set(data.map(d => d.Comuna))].filter(Boolean);
-            
-            const selDestino = document.getElementById('filtroDestino');
-            destinos.forEach(d => selDestino.add(new Option(d, d)));
+      function poblarFiltros(data) {
+    // Usamos 'DESTINO' y 'Comuna' que son tus columnas reales
+    const destinos = [...new Set(data.map(d => d.DESTINO))].filter(Boolean);
+    const comunas = [...new Set(data.map(d => d.Comuna))].filter(Boolean);
+    
+    const selDestino = document.getElementById('filtroDestino');
+    destinos.forEach(d => selDestino.add(new Option(d, d)));
 
-            const selComuna = document.getElementById('filtroComuna');
-            comunas.forEach(c => selComuna.add(new Option(c, c)));
-        }
+    const selComuna = document.getElementById('filtroComuna');
+    comunas.forEach(c => selComuna.add(new Option(c, c)));
+}
 
         function actualizarGrafico() {
             const destino = document.getElementById('filtroDestino').value;
